@@ -1,7 +1,9 @@
 # phpLDAPadmin service for DDEV (from the docktopus stack).
 #ddev-generated
 #
-# Exposed through the ddev-router at: http://<project>.ddev.site:6443
+# Exposed through the ddev-router at:
+#   http://<project>.ddev.site:6443   https://<project>.ddev.site:6444
+#   (configurable in .ddev/.env.ddev-docktopus-phpldapadmin)
 # Login DN: cn=admin,dc=miempresa,dc=local  /  password: admin
 # (defaults of ddev-docktopus-ldap)
 
@@ -14,6 +16,7 @@ services:
       - PHPLDAPADMIN_HTTPS=false
       - VIRTUAL_HOST=${DDEV_HOSTNAME}
       - HTTP_EXPOSE=${PHPLDAPADMIN_HTTP_PORT:-6443}:80
+      - HTTPS_EXPOSE=${PHPLDAPADMIN_HTTPS_PORT:-6444}:80
     depends_on:
       - openldap
     labels:

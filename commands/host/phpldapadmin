@@ -5,4 +5,8 @@
 ## Usage: phpldapadmin
 ## Example: "ddev phpldapadmin"
 
-ddev launch :6443
+if [ ${DDEV_PRIMARY_URL%://*} = "http" ]; then
+    ddev launch :6443
+else
+    ddev launch :6444
+fi

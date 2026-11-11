@@ -19,11 +19,11 @@ ddev phpldapadmin          # or open http://<project>.ddev.site:6443
 
 | Setting | Value |
 | --- | --- |
-| URL | `http://<project>.ddev.site:6443` |
+| URL | `http://<project>.ddev.site:6443` (HTTPS: `:6444`) — also `ddev phpldapadmin` |
 | Login DN | `cn=admin,dc=miempresa,dc=local` |
 | Password | `admin` |
 
-Change the router port in `.ddev/.env.ddev-docktopus-phpldapadmin` (`PHPLDAPADMIN_HTTP_PORT`).
+Change the router ports in `.ddev/.env.ddev-docktopus-phpldapadmin` (`PHPLDAPADMIN_HTTP_PORT`, `PHPLDAPADMIN_HTTPS_PORT`).
 
 Note: port 389 is the LDAP protocol port, not an HTTP interface — browsers block it by design (`ERR_UNSAFE_PORT`). Use this UI or a dedicated LDAP client for directory management.
 
