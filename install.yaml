@@ -1,0 +1,17 @@
+name: ddev-docktopus-phpldapadmin
+
+ddev_version_constraint: '>= v1.24.10'
+
+# Requires the OpenLDAP service from ddev-docktopus-ldap.
+dependencies:
+  - juancalero/ddev-docktopus-ldap
+
+project_files:
+  - docker-compose.phpldapadmin.yaml
+  - .env.ddev-docktopus-phpldapadmin
+  - commands/host/phpldapadmin
+
+post_install_actions:
+  - |
+    #ddev-description:Make the host command executable
+    chmod +x commands/host/phpldapadmin 2>/dev/null || true
